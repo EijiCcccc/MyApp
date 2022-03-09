@@ -14,7 +14,7 @@ import {
 /*
     提供Theme方法  ThemeImage ThemeSize ThemeStyle
     用法
-        ThemeSize(AllSizeKeys.videoListHeight)
+        ThemeSize(AllSizeKeys.videoListCellHeight)
         ThemeStyle(AllStyleKeys.style)
         ThemeImage(Module.video, AllImagesKeys.check)
 */

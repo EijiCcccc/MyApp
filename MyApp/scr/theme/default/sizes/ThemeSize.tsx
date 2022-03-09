@@ -4,7 +4,8 @@ import AllSizeKeys from '../AllSizeKeys';
 
 //设置公共size
 const Sizes = {
-    [AllSizeKeys.videoListHeight]: 258 * getScreenScale(),
+    [AllSizeKeys.videoListCellHeight]: 258 * getScreenScale(),
+    [AllSizeKeys.lineHeight]: 2,
 }
 
 export default function getSize(sizeName : any) {

@@ -1,6 +1,8 @@
 import { StyleSheet } from "react-native";
 import { windowWidth } from "../../../commons/utils/screenUtil";
+import AllSizeKeys from "../AllSizeKeys";
 import AllStyleKeys from "../AllStyleKeys";
+import getSize from "../sizes/ThemeSize";
 
 
 //设置公共styles
@@ -13,7 +15,7 @@ const ThemeStyle = StyleSheet.create({
     },
     [AllStyleKeys.lineStyle]: {
         width: windowWidth,
-        height: 2,
+        height: getSize(AllSizeKeys.lineHeight),
         backgroundColor: 'black',
     },
     [AllStyleKeys.eighteenSizeTextStyle]: {

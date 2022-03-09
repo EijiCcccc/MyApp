@@ -52,7 +52,7 @@ const Cell: React.FC<{title: String, subTitle: String, onPress: () => void, isSe
 const styles = StyleSheet.create({
     cellContainerStyle: {
       width: windowWidth,
-      height: ThemeSize(AllSizeKeys.videoListHeight),
+      height: ThemeSize(AllSizeKeys.videoListCellHeight),
       paddingLeft: 17,
       paddingRight: 17,
     },

@@ -34,6 +34,8 @@ const Data = () => {
 const VideoList = () => {
   const [ selectedId, setSelectedId ] = useState()
 
+  const [ data, setData ] = useState(Data())
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -44,25 +46,26 @@ const VideoList = () => {
     return <Cell title={item.title} subTitle={item.subTitle} onPress={() => {setSelectedId(item.id)}} isSelected={item.id === selectedId}/>
   }
 
-  const keyExtractor = (item: any) => item.id
+  const keyExtractor = (item: object, index: number) => index.toString()
 
   // 列表分割线
   const ItemSeparatorComponent = () => <View style={ThemeStyle(AllStyleKeys.lineStyle)}></View>
 
   //头部导航模拟 todo: 构建全局导航
   const NavHead : React.FC<{navTitle: string}> = ({navTitle}) => <Text style={[ThemeStyle(AllStyleKeys.eighteenSizeTextStyle), styles.navHeaderStyle]}>{navTitle}</Text>
-
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <NavHead navTitle='Template Name'/>
       <FlatList
+        initialNumToRender={5}
         ItemSeparatorComponent={ItemSeparatorComponent}
         renderItem={renderItem}
         extraData={selectedId}
         keyExtractor={keyExtractor}
-        getItemLayout={(data, index) => ({length: ThemeSize(AllSizeKeys.videoListHeight), offset: index * ThemeSize(AllSizeKeys.videoListHeight), index})}
-        data={Data()}/>
+        getItemLayout={(data, index) => ({length: ThemeSize(AllSizeKeys.videoListCellHeight), offset: index * (ThemeSize(AllSizeKeys.videoListCellHeight) + ThemeSize(AllSizeKeys.lineHeight)), index})}
+        windowSize={50}
+        data={data}/>
     </SafeAreaView>
   );
 };
