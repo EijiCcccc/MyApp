@@ -58,6 +58,7 @@ const VideoList = () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <NavHead navTitle='Template Name'/>
       <FlatList
+        style={styles.listMarginBottomStyle}
         initialNumToRender={5}
         ItemSeparatorComponent={ItemSeparatorComponent}
         renderItem={renderItem}
@@ -73,6 +74,9 @@ const VideoList = () => {
 const styles = StyleSheet.create({
   navHeaderStyle: {
     textAlign: 'center',
+  },
+  listMarginBottomStyle: {
+    marginBottom: 25
   }
 });
 
