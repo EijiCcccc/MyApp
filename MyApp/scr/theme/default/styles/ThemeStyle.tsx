@@ -2,6 +2,8 @@ import { StyleSheet } from "react-native";
 import { windowWidth } from "../../../commons/utils/screenUtil";
 import AllStyleKeys from "../AllStyleKeys";
 
+
+//设置公共styles
 const ThemeStyle = StyleSheet.create({
     [AllStyleKeys.fourteenSizeTextStyle]: {
         fontSize: 14,

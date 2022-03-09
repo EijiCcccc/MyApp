@@ -7,12 +7,19 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
-import { getScreenScale, windowWidth } from '../commons/utils/screenUtil';
-import AllSizeKeys from '../theme/default/AllSizeKeys';
-import AllStyleKeys from '../theme/default/AllStyleKeys';
-import Module from '../theme/default/model/Module';
-import { ImagesKeys, ThemeImage, ThemeSize, ThemeStyle } from '../theme/default/ThemeAdapter';
+import { getScreenScale, windowWidth } from '../../../commons/utils/screenUtil';
+import AllSizeKeys from '../../../theme/default/AllSizeKeys';
+import AllStyleKeys from '../../../theme/default/AllStyleKeys';
+import Module from '../../../theme/default/model/Module';
+import { ImagesKeys, ThemeImage, ThemeSize, ThemeStyle } from '../../../theme/default/ThemeAdapter';
 
+/*
+  用于视频列表cell  todo： 要实现video视频播放等
+  @param title 标题
+  @param subTitle 描述
+  @param isSelected 是否选择cell
+  @param onPress 点击视频播放按钮回调
+*/
 const Cell: React.FC<{title: String, subTitle: String, onPress: () => void, isSelected : boolean}> = ({title, subTitle, onPress, isSelected}) => {
   const backgroundColor = isSelected ? 'black': 'white'
   const fontWeight = isSelected ? 'bold' : 'normal'

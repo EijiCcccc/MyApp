@@ -1,6 +1,7 @@
 import Module from '../model/Module'
 import AllImageKeys from '../AllImageKeys'
 
+//设置图片资源
 const ImageResources = {
     [Module.video]: {
         [AllImageKeys.checkSelect]: require("../../../../Images/video/check-select.png"),

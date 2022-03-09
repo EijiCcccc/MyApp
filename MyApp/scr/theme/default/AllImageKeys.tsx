@@ -1,4 +1,4 @@
-
+//所有引用图片的keys
 const AllImageKeys = {
     //video
     checkSelect: 'checkSelect',
