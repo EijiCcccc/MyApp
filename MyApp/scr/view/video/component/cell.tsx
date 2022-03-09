@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { getScreenScale, windowWidth } from '../../../commons/utils/screenUtil';
 import AllSizeKeys from '../../../theme/default/AllSizeKeys';
 import AllStyleKeys from '../../../theme/default/AllStyleKeys';
@@ -19,12 +20,15 @@ import { ImagesKeys, ThemeImage, ThemeSize, ThemeStyle } from '../../../theme/de
   @param subTitle 描述
   @param isSelected 是否选择cell
   @param onPress 点击视频播放按钮回调
+
+  Text 是否需要根据系统大小进行缩放，需要封装一层TextView 设置allowFontScaling = {false}
+  TouchableOpacity 点击效果可以封装一层，以及点击区域是否为整个cell
 */
 const Cell: React.FC<{title: String, subTitle: String, onPress: () => void, isSelected : boolean}> = ({title, subTitle, onPress, isSelected}) => {
-  const backgroundColor = isSelected ? 'black': 'white'
+  const backgroundColor =  isSelected ? "rgba(0, 0, 0, 0.08)" : Colors.lighter
   const fontWeight = isSelected ? 'bold' : 'normal'
     return (
-      <View style={styles.cellContainerStyle}>
+      <View style={[styles.cellContainerStyle, {backgroundColor}]}>
         <TouchableOpacity 
           onPress={onPress}
           style={styles.videoStyle}>
@@ -39,7 +43,7 @@ const Cell: React.FC<{title: String, subTitle: String, onPress: () => void, isSe
           </View>
           <Image 
             source={isSelected ? ThemeImage(Module.video, ImagesKeys.checkSelect) : ThemeImage(Module.video, ImagesKeys.check)}
-            style={[styles.selectImageStyle, {backgroundColor}]}/>
+            style={[styles.selectImageStyle, {backgroundColor: isSelected ? 'black': 'white'}]}/>
         </View>
       </View>
     )
@@ -49,7 +53,6 @@ const styles = StyleSheet.create({
     cellContainerStyle: {
       width: windowWidth,
       height: ThemeSize(AllSizeKeys.videoListHeight),
-      backgroundColor: "rgba(255, 255, 255, 0.08)",
       paddingLeft: 17,
       paddingRight: 17,
     },
