@@ -33,7 +33,9 @@ const Data = () => {
 
 //视频列表
 const VideoList = () => {
-  const [ selectedId, setSelectedId ] = useState()
+  const [ selectedModelId, setSelectedId ] = useState()
+
+  const [ selectedVideoId, setSelectedVideoId ] = useState()
 
   const [ data, setData ] = useState(Data())
 
@@ -44,7 +46,7 @@ const VideoList = () => {
   };
 
   const renderItem: React.FC<{item: any, index: number}> = ({item, index}) => {
-    return <Cell title={item.title} subTitle={item.subTitle} onPress={() => {setSelectedId(item.id)}} isSelected={item.id === selectedId}/>
+    return <Cell title={item.title} subTitle={item.subTitle} onSelectePress={() => {setSelectedId(item.id)}} onVideoPress={() => setSelectedVideoId(item.id)} isSelected={item.id === selectedModelId} isPlaying={item.id === selectedVideoId}/>
   }
 
   const keyExtractor = (item: object, index: number) => index.toString()
@@ -63,7 +65,6 @@ const VideoList = () => {
         initialNumToRender={5}
         ItemSeparatorComponent={ItemSeparatorComponent}
         renderItem={renderItem}
-        extraData={selectedId}
         keyExtractor={keyExtractor}
         getItemLayout={(data, index) => ({length: ThemeSize(AllSizeKeys.videoListCellHeight), offset: index * (ThemeSize(AllSizeKeys.videoListCellHeight) + ThemeSize(AllSizeKeys.lineHeight)), index})}
         windowSize={50}

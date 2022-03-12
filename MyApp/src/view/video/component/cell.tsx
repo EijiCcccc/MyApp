@@ -24,24 +24,25 @@ import { ImagesKeys, ThemeImage, ThemeSize, ThemeStyle } from '../../../theme/de
   Text 是否需要根据系统大小进行缩放，需要封装一层TextView 设置allowFontScaling = {false}
   TouchableOpacity 点击效果可以封装一层，以及点击区域是否为整个cell
 */
-const Cell: React.FC<{title: String, subTitle: String, onPress: () => void, isSelected : boolean}> = ({title, subTitle, onPress, isSelected}) => {
+const Cell: React.FC<{title: String, subTitle: String, onSelectePress: () => void, onVideoPress: () => void, isSelected : boolean, isPlaying: boolean}> = ({title, subTitle, onSelectePress, onVideoPress, isSelected, isPlaying}) => {
   const backgroundColor =  isSelected ? "rgba(0, 0, 0, 0.08)" : Colors.lighter
   const fontWeight = isSelected ? 'bold' : 'normal'
     return (
       <View style={[styles.cellContainerStyle, {backgroundColor}]}>
-        <View 
+        <TouchableOpacity
+          onPress={onVideoPress} 
           style={styles.videoStyle}>
           <Image 
-            source={isSelected ? ThemeImage(Module.video, ImagesKeys.pauseButton) : ThemeImage(Module.video, ImagesKeys.playButton)}
+            source={isPlaying ? ThemeImage(Module.video, ImagesKeys.pauseButton) : ThemeImage(Module.video, ImagesKeys.playButton)}
             style={styles.playIconStyle}/>
-        </View>
+        </TouchableOpacity>
         <View style={styles.textViewStyle}>
           <View>
             <Text style={[ThemeStyle(AllStyleKeys.fourteenSizeTextStyle), {fontWeight}]}>{title}</Text>
             <Text style={[ThemeStyle(AllStyleKeys.fourteenSizeTextStyle), styles.subTitleMarginStyle, {fontWeight}]}>{subTitle}</Text>
           </View>
           <TouchableOpacity 
-            onPress={onPress}>
+            onPress={onSelectePress}>
             <Image 
               source={isSelected ? ThemeImage(Module.video, ImagesKeys.checkSelect) : ThemeImage(Module.video, ImagesKeys.check)}
               style={[styles.selectImageStyle, {backgroundColor: isSelected ? 'black': 'white'}]}/>
