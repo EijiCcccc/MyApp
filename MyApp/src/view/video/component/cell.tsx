@@ -29,21 +29,23 @@ const Cell: React.FC<{title: String, subTitle: String, onPress: () => void, isSe
   const fontWeight = isSelected ? 'bold' : 'normal'
     return (
       <View style={[styles.cellContainerStyle, {backgroundColor}]}>
-        <TouchableOpacity 
-          onPress={onPress}
+        <View 
           style={styles.videoStyle}>
           <Image 
             source={isSelected ? ThemeImage(Module.video, ImagesKeys.pauseButton) : ThemeImage(Module.video, ImagesKeys.playButton)}
             style={styles.playIconStyle}/>
-        </TouchableOpacity>
+        </View>
         <View style={styles.textViewStyle}>
           <View>
             <Text style={[ThemeStyle(AllStyleKeys.fourteenSizeTextStyle), {fontWeight}]}>{title}</Text>
             <Text style={[ThemeStyle(AllStyleKeys.fourteenSizeTextStyle), styles.subTitleMarginStyle, {fontWeight}]}>{subTitle}</Text>
           </View>
-          <Image 
-            source={isSelected ? ThemeImage(Module.video, ImagesKeys.checkSelect) : ThemeImage(Module.video, ImagesKeys.check)}
-            style={[styles.selectImageStyle, {backgroundColor: isSelected ? 'black': 'white'}]}/>
+          <TouchableOpacity 
+            onPress={onPress}>
+            <Image 
+              source={isSelected ? ThemeImage(Module.video, ImagesKeys.checkSelect) : ThemeImage(Module.video, ImagesKeys.check)}
+              style={[styles.selectImageStyle, {backgroundColor: isSelected ? 'black': 'white'}]}/>
+          </TouchableOpacity>
         </View>
       </View>
     )

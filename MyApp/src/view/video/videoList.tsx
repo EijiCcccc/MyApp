@@ -12,10 +12,11 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
+import { windowHeight, windowWidth } from '../../commons/utils/screenUtil';
 import AllSizeKeys from '../../theme/default/AllSizeKeys';
 import AllStyleKeys from '../../theme/default/AllStyleKeys';
 import { ThemeSize, ThemeStyle } from '../../theme/default/ThemeAdapter';
-import Cell from '../../view/video/component/cell';
+import Cell from './component/cell';
 
 // 构造数据  模拟100条数据，用id区分每个元素
 const Data = () => {

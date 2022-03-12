@@ -1,4 +1,4 @@
-import Module from '../default/model/Module'
+import Module from './model/Module'
 import AllImageKeys from './AllImageKeys'
 import AllSizeKeys from './AllSizeKeys'
 // import AllColorKeys from './AllColorKeys'

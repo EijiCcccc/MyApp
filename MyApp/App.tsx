@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import VideoList from './scr/view/video/videoList';
+import VideoList from './src/view/video/videoList';
 
 //todo 用于构建导航
 const App = () => <VideoList/>
